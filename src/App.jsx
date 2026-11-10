@@ -1,7 +1,9 @@
+import Home from "./Pages/Home/Home";
+
 export default function App(){
   return (
     <div>
-      Hello World!
+      <Home/>
     </div>
   )
 }
