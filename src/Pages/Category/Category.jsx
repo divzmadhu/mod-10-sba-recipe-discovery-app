@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 
 export default function Category() {
@@ -28,20 +28,27 @@ export default function Category() {
             {meals.length === 0 ? (
                 <p>No recipes found.</p>
             ) : (
-                <div>
-                    {meals.map((meal) => (
-                        <div key={meal.idMeal}>
-                            <img
-                                src={meal.strMealThumb}
-                                alt={meal.strMeal}
-                                width="200"
-                            />
 
-                            <h3>{meal.strMeal}</h3>
-                        </div>
+                <div>
+
+                    {meals.map((meal) => (
+                            <Link
+                                key={meal.idMeal}
+                                to={`/recipe/${meal.idMeal}`}
+                            >
+                                <div>
+                                    <img
+                                        src={meal.strMealThumb}
+                                        alt={meal.strMeal}
+                                        width="200"
+                                    />
+
+                                    <h3>{meal.strMeal}</h3>
+                                </div>
+                            </Link>
                     ))}
                 </div>
             )}
-        </div>
+        </div >
     );
 }
