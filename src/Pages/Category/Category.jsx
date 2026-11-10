@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
+import RecipeCard from "../../components/RecipeCard/RecipeCard";
 
 export default function Category() {
 
@@ -32,20 +33,10 @@ export default function Category() {
                 <div>
 
                     {meals.map((meal) => (
-                            <Link
-                                key={meal.idMeal}
-                                to={`/recipe/${meal.idMeal}`}
-                            >
-                                <div>
-                                    <img
-                                        src={meal.strMealThumb}
-                                        alt={meal.strMeal}
-                                        width="200"
-                                    />
-
-                                    <h3>{meal.strMeal}</h3>
-                                </div>
-                            </Link>
+                        <RecipeCard
+                            key={meal.idMeal}
+                            meal={meal}
+                        />
                     ))}
                 </div>
             )}
