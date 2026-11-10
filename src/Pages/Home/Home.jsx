@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 
 export default function Home() {
@@ -20,15 +21,21 @@ export default function Home() {
 
             <div>
                 {data.categories.map((category) => (
-                    <div key={category.idCategory}>
-                        <img
-                            src={category.strCategoryThumb}
-                            alt={category.strCategory}
-                            width="200"
-                        />
+                    <Link
+                        key={category.idCategory}
+                        to={`/category/${category.strCategory}`}
+                    >
+                        <div>
 
-                        <h3>{category.strCategory}</h3>
-                    </div>
+                            <img
+                                src={category.strCategoryThumb}
+                                alt={category.strCategory}
+                                width="200"
+                            />
+
+                            <h3>{category.strCategory}</h3>
+                        </div>
+                    </Link>
                 ))}
             </div>
         </div>
