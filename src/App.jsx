@@ -4,14 +4,14 @@ import Home from "./Pages/Home/Home";
 import Category from "./Pages/Category/Category";
 import RecipeDetails from "./Pages/RecipeDetails/RecipeDetails";
 import Navbar from "./components/Navbar/Navbar";
-
+import Favorites from "./Pages/Favorites/Favorites";
 
 
 export default function App() {
   return (
     <div>
       <Navbar />
-      
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -22,6 +22,8 @@ export default function App() {
           path="/recipe/:recipeId"
           element={<RecipeDetails />}
         />
+
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </div>
   )

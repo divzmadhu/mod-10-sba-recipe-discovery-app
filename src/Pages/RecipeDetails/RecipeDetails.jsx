@@ -1,9 +1,12 @@
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
+import { useFavorites } from "../../context/FavoritesContext";
 
 export default function RecipeDetails() {
 
     const { recipeId } = useParams();
+
+    const { addFavorite, removeFavorite, isFavorite } = useFavorites();
 
     const { data, loading, error } = useFetch(
         `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`
@@ -18,11 +21,14 @@ export default function RecipeDetails() {
     }
 
     const recipe = data.meals?.[0];
-
     if (!recipe) {
         return <p>Recipe not found.</p>;
     }
 
+
+    const favorite = isFavorite(recipe.idMeal);
+
+  
     return (
         <div>
             <h1>{recipe.strMeal}</h1>
@@ -32,6 +38,16 @@ export default function RecipeDetails() {
                 alt={recipe.strMeal}
                 width="300"
             />
+
+            <button
+                onClick={() =>
+                    favorite
+                        ? removeFavorite(recipe.idMeal)
+                        : addFavorite(recipe.idMeal)
+                }
+            >
+                {favorite ? "Remove from Favorites" : "Add to Favorites"}
+            </button>
 
             <h2>Ingredients</h2>
 
