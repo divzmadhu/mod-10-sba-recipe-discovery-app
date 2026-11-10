@@ -5,7 +5,7 @@ import Category from "./Pages/Category/Category";
 import RecipeDetails from "./Pages/RecipeDetails/RecipeDetails";
 import Navbar from "./components/Navbar/Navbar";
 import Favorites from "./Pages/Favorites/Favorites";
-
+import Search from "./Pages/Search/Search";
 
 export default function App() {
   return (
@@ -24,6 +24,7 @@ export default function App() {
         />
 
         <Route path="/favorites" element={<Favorites />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </div>
   )
