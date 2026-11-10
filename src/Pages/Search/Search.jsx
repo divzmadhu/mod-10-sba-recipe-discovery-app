@@ -1,6 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
+import useDebounce from "../../hooks/useDebounce";
 
 export default function Search() {
 
@@ -8,9 +9,12 @@ export default function Search() {
 
     const searchQuery = searchParams.get("query") || "";
 
+    // Wait 500ms after the user stops typing before updating the search value.
+    const debouncedSearchQuery = useDebounce(searchQuery, 500);
+
     const { data, loading, error } = useFetch(
-        searchQuery
-            ? `https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(searchQuery)}`
+        debouncedSearchQuery
+            ? `https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(debouncedSearchQuery)}`
             : null
     );
 
@@ -30,7 +34,7 @@ export default function Search() {
 
             {error && <p>Error: {error}</p>}
 
-            {!loading && !error && searchQuery && (
+            {!loading && !error && debouncedSearchQuery && (
                 <div>
                     {data?.meals ? (
                         data.meals.map((meal) => (

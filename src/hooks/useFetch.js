@@ -12,6 +12,12 @@ export default function useFetch(url) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        if (!url) {
+            setData(null);
+            setLoading(false);
+            setError(null);
+            return;
+        }
 
         async function fetchData() {
 
