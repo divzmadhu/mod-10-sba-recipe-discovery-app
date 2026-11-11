@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import Spinner from "../../components/Spinner/Spinner";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 export default function Home() {
 
@@ -13,7 +14,7 @@ export default function Home() {
     }
 
     if (error) {
-        return <p>Error: {error}</p>;
+       return <ErrorMessage message={error} />;
     }
 
     return (
