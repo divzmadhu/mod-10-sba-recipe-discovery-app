@@ -2,6 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import useDebounce from "../../hooks/useDebounce";
+import Spinner from "../../components/Spinner/Spinner";
 
 export default function Search() {
 
@@ -30,7 +31,7 @@ export default function Search() {
                     setSearchParams({ query: event.target.value })
                 }
             />
-            {loading && <p>Searching recipes...</p>}
+            {loading && <Spinner />}
 
             {error && <p>Error: {error}</p>}
 
