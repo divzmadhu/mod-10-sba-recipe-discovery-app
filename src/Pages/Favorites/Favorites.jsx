@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useFavorites } from "../../context/FavoritesContext";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 export default function Favorites() {
     const { favorites, removeFavorite } = useFavorites();
@@ -58,7 +59,7 @@ export default function Favorites() {
     }
 
     if (error) {
-        return <p>Error: {error}</p>;
+        return <ErrorMessage message={error} />;
     }
 
     return (

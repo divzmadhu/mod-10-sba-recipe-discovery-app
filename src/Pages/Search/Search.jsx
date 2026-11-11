@@ -3,6 +3,7 @@ import useFetch from "../../hooks/useFetch";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 import useDebounce from "../../hooks/useDebounce";
 import Spinner from "../../components/Spinner/Spinner";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 export default function Search() {
 
@@ -33,8 +34,8 @@ export default function Search() {
             />
             {loading && <Spinner />}
 
-            {error && <p>Error: {error}</p>}
-
+            {error && <ErrorMessage message={error} />}
+            
             {!loading && !error && debouncedSearchQuery && (
                 <div>
                     {data?.meals ? (

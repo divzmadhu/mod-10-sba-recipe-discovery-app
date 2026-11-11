@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import { useFavorites } from "../../context/FavoritesContext";
 import Spinner from "../../components/Spinner/Spinner";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 export default function RecipeDetails() {
 
@@ -23,7 +24,7 @@ export default function RecipeDetails() {
 
     const recipe = data.meals?.[0];
     if (!recipe) {
-        return <p>Recipe not found.</p>;
+        return <ErrorMessage message={error} />;
     }
 
 
