@@ -59,3 +59,6 @@ Persisting data using Local Storage.
 
 Implementing debounced search functionality.
 
+## Pending Tasks
+
+To improve the stying and to make the the project user friendly
