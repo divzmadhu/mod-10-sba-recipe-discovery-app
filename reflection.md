@@ -5,6 +5,18 @@
    1.  The most challenging part of the project for you.
 
       One of the most challenging parts of this project was understanding how data flows between different pages and components. Fetching recipe categories, displaying recipes based on selected categories, retrieving individual recipe details, and connecting the search functionality to the API took some time to understand. Implementing custom hooks like `useFetch`, `useDebounce`, and `useLocalStorage` helped me better understand API requests, loading and error states, and data persistence. Managing favorite recipes across different pages using React Context was another learning experience. Working through these challenges helped me gain a better understanding of React hooks, component communication, and state management.
+      
+      # The specific challenges I encountered and the areas where I needed guidance are listed below:
+
+    1. Vite Configuration: Encountered a configuration issue that prevented the development server from starting.
+    2. React Dependencies: Needed help checking React and React DOM versions and configuring dependency deduplication.
+    3. API Fetching: Needed guidance understanding how API responses are fetched, stored, and displayed.
+    4. Favorites: Initially had trouble displaying saved recipes correctly across pages.
+    5. Search Functionality: Faced issues displaying the expected search results and connecting the search input to the API.
+    6. Custom Hooks: Needed practice understanding useEffect, setTimeout, and cleanup functions while implementing debouncing.
+      
+    Overall: I received guidance with debugging and understanding these concepts, which helped me resolve issues and complete the project while improving my React skills.
+
 
 
     2. A brief explanation of a design decision you made (e.g., why you structured a hook a certain way, how you decided to manage a piece of state).
