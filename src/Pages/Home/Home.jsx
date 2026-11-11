@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
+import Spinner from "../../components/Spinner/Spinner";
 
 export default function Home() {
 
@@ -8,7 +9,7 @@ export default function Home() {
     );
 
     if (loading) {
-        return <h2>Loading categories...</h2>;
+        return <Spinner />;
     }
 
     if (error) {
