@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import { useFavorites } from "../../context/FavoritesContext";
+import Spinner from "../../components/Spinner/Spinner";
 
 export default function RecipeDetails() {
 
@@ -13,7 +14,7 @@ export default function RecipeDetails() {
     );
 
     if (loading) {
-        return <h2>Loading recipe details...</h2>;
+        return <Spinner/>;
     }
 
     if (error) {

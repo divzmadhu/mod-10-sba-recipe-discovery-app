@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
+import Spinner from "../../components/Spinner/Spinner";
 
 export default function Category() {
 
@@ -13,7 +14,7 @@ export default function Category() {
     );
 
     if (loading) {
-        return <h2>Loading recipes...</h2>;
+        return <Spinner/>;
     }
 
     if (error) {
