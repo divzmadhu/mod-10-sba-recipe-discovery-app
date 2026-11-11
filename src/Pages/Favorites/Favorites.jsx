@@ -3,7 +3,7 @@ import { useFavorites } from "../../context/FavoritesContext";
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
 
 export default function Favorites() {
-    const { favorites } = useFavorites();
+    const { favorites, removeFavorite } = useFavorites();
 
     const [favoriteRecipes, setFavoriteRecipes] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -70,10 +70,13 @@ export default function Favorites() {
             ) : (
                 <div>
                     {favoriteRecipes.map((meal) => (
-                        <RecipeCard
-                            key={meal.idMeal}
-                            meal={meal}
-                        />
+                        <div key={meal.idMeal}>
+                            <RecipeCard meal={meal} />
+
+                            <button onClick={() => removeFavorite(meal.idMeal)}>
+                                Remove from Favorites
+                            </button>
+                        </div>
                     ))}
                 </div>
             )}
